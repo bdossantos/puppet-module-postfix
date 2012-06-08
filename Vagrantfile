@@ -22,7 +22,7 @@ Vagrant::Config.run do |config|
 
   # smtp01
   config.vm.define :smtp01 do |smtp01_config|
-    smtp01_config.vm.host_name = "smtp02"
+    smtp01_config.vm.host_name = "smtp01"
     smtp01_config.vm.network :hostonly, "192.168.33.10"
     smtp01_config.vm.forward_port 25, 2525
   end
