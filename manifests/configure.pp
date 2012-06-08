@@ -23,7 +23,8 @@ class postfix::configure {
         '/var/spool/postfix/var/run/saslauthd':
         ensure  => 'directory',
         group   => 'sasl',
-        mode    => '710';
+        mode    => '710',
+        require => Service['saslauthd']
     }
     
     user {
