@@ -20,12 +20,12 @@ append_dot_mydomain = no
 readme_directory = no
 
 # TLS parameters
-smtpd_use_tls = <%= smtpd_use_tls %>
-smtpd_tls_auth_only = <%= smtpd_tls_auth_only %>
+smtpd_use_tls = <%= @smtpd_use_tls %>
+smtpd_tls_auth_only = <%= @smtpd_tls_auth_only %>
 smtpd_tls_cert_file = /etc/ssl/certs/ssl-cert-snakeoil.pem
 smtpd_tls_key_file = /etc/ssl/private/ssl-cert-snakeoil.key
-smtpd_tls_session_cache_database = btree:${data_directory}/smtpd_scache
-smtp_tls_session_cache_database = btree:${data_directory}/smtp_scache
+smtpd_tls_session_cache_database = btree:${@data_directory}/smtpd_scache
+smtp_tls_session_cache_database = btree:${@data_directory}/smtp_scache
 smtpd_tls_session_cache_timeout = 3600s
 smtpd_tls_loglevel = 1
 smtpd_tls_received_header = yes
@@ -34,21 +34,21 @@ tls_random_source = dev:/dev/urandom
 # See /usr/share/doc/postfix/TLS_README.gz in the postfix-doc package for
 # information on enabling SSL in the smtp client.
 
-myhostname = <%= hostname %>
+myhostname = <%= @hostname %>
 alias_maps = hash:/etc/aliases
 alias_database = hash:/etc/aliases
-mydestination = <%= hostname %>, localhost.localdomain, localhost
+mydestination = <%= @hostname %>, localhost.localdomain, localhost
 relayhost = 
 mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128
 mailbox_command = procmail -a "$EXTENSION"
-mailbox_size_limit = <%= mailbox_size_limit %>
-recipient_delimiter = <%= recipient_delimiter %>
-inet_interfaces = <%= inet_interfaces %>
-inet_protocols = <%= inet_protocols %>
+mailbox_size_limit = <%= @mailbox_size_limit %>
+recipient_delimiter = <%= @recipient_delimiter %>
+inet_interfaces = <%= @inet_interfaces %>
+inet_protocols = <%= @inet_protocols %>
 
 # sasl
 smtpd_sasl_local_domain =
-smtpd_sasl_auth_enable = <%= smtpd_sasl_auth_enable %>
+smtpd_sasl_auth_enable = <%= @smtpd_sasl_auth_enable %>
 smtpd_sasl_security_options = noanonymous
 broken_sasl_auth_clients = yes
 smtpd_recipient_restrictions = permit_sasl_authenticated,permit_mynetworks,reject_unauth_destination
