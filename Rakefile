@@ -4,7 +4,7 @@ require 'puppet-lint/tasks/puppet-lint'
 
 # rake
 task :default do
-      sh %{rake -T}
+  sh %{rake -T}
 end
 
 # rake spec
