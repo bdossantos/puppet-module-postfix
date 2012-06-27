@@ -1,7 +1,6 @@
 class postfix::packages {
 
-    package {
-        ['postfix', 'sasl2-bin']:
-        ensure  => 'installed'
-    }
+  package { ['postfix', 'sasl2-bin']:
+    ensure  => 'installed'
+  }
 }
